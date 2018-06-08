@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <table ng-table="tableParams"  class="table table-bordered" >
+            <thead>
+               <tr>
+                  <th>Name</th>
+                </tr>
+            <thead>
+            <tbody>
+                <tr ng-repeat="country in $data">
+                  <td data-title="'Name'" style="text-align:center">
+                      {{country.name}}
+                  </td>   
+                </tr>
+            </tbody>
+          </table>
+          <button type="button" ng-click="view2.back()">Back</button>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+</div>

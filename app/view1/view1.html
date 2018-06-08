@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 table-responsive">
+            <table ng-table="tableParams"  class="table table-bordered" >
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Name</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <tr ng-repeat="country in $data">
+                        <td data-title="'id'" style="text-align:center" >
+                            <input type="checkbox" value="{{country.id}}" ng-click="view1.checkValidation(country)"ng-model="checkboxes.checked" class="select-all" value=""/>
+                        </td>
+                        <td data-title="'Name'" style="text-align:center" >
+                            {{country.name}}
+                        </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div ng-if="view1.selectedCountry.threatLevel==1 || view1.selectedCountry.threatLevel==2">
+                
+                <form name="myForm" class="form-horizontal well" ng-submit="view1.addCountry(newCountry)">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <h4 style="text-align:center">Add Your Country</h4>
+                                <hr style="border-top:1px solid black">
+                            </div>
+                            
+                            <div class="form-group col-md-12">
+                                    <div class="col-md-4" >
+                                            <label class="control-label " for="countryName">Country Name:</label>
+                                    </div>
+                                    
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control " name="countryName" ng-model="newCountry.name" placeholder="country name" required>
+                                    </div>
+                            </div>
+                           
+                            <div class="form-group col-md-12">
+                                <br/>        
+                                <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-primary" style="margin-left:40%;padding:1% 8%">Submit</button>                       
+                            </div>
+                    </div>
+                      
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    
